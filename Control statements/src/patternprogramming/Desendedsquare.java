@@ -11,11 +11,10 @@ public class Desendedsquare {
 			for(int j=n;j>=i;j--)
 				System.out.print(j+" ");
 			
-			for(int j=1;j<(i-1)*2;j++)
+			for(int j=1;j<=(i-1)*2;j++)
 				System.out.print(i+ " ");
 			
-			
-			for(int j =i+1 ; i!=0 && j<=n ;j++)
+			for(int j =i+1 ; j<=n ;j++)
 				System.out.print(j+" ");
 			
 			System.out.println();
