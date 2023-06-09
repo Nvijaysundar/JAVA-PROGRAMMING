@@ -2,7 +2,7 @@ package p14;
 public class Product {
 	String Name,Id;
 	Float price;
-	Integer qty;
+	public Integer qty;
 	public Product(String name, String id, Float price, Integer qty) {
 		Name = name;
 		Id = id;

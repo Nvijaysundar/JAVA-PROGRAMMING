@@ -16,7 +16,7 @@ public class Productinfo {
 			String Id = sc.nextLine().toUpperCase().trim();
 			System.out.print("Enter Price: ");
 			Float pr = Float.parseFloat(sc.nextLine().trim());
-			System.out.println("Enter Qty: ");
+			System.out.print("Enter Qty: ");
 			Integer qty = Integer.parseInt(sc.nextLine().trim());
 			p[i] = new Product(name, Id, pr, qty);	
 		}
@@ -26,7 +26,16 @@ public class Productinfo {
 		{
 			System.out.println(temp.toString());
 		}
+	
+		Product max = p[0];
 		
+		for(int i=1;i<p.length;i++)
+		{
+			if(max.qty <p[i].qty)
+				max = p[i];
+		}
+		
+		System.out.println("Max Prooduct Qty: \n"+max.toString());
 		sc.close();
 	}
 }

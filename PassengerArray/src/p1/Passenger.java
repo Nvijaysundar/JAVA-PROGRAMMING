@@ -25,6 +25,7 @@ public class Passenger {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter No of Bookings : ");
 		Passenger p[] = new Passenger[Integer.parseInt(sc.nextLine())];
 		for(int i=0;i<p.length;i++)
 		{
@@ -61,7 +62,7 @@ public class Passenger {
 					System.out.println("Enter Valid info");
 			}
 			
-			if(Adult !=0)
+			if(Adult<seats && Adult>=0)
 			{
 				while(true)
 				{
@@ -79,8 +80,37 @@ public class Passenger {
 			p[i] = new Passenger(name, mob, seats, Adult, child);
 		}
 		
-		System.out.println("Name\tMobile\t\tAdults\tChild\tSeats\tTamt");
-		for(Passenger temp :p)
-			temp.getData();
+			System.out.println("1.Display all bookings\n2.Adults>Child\n3.AllChild\n4.Range");
+			switch(Integer.parseInt(sc.nextLine()))
+			{
+			case 1:
+				System.out.println("Name\tMobile\t\tAdults\tChild\tSeats\tTamt");
+				for(Passenger temp :p)
+					temp.getData();
+				break;
+			case 2:
+				System.out.println("Name\tMobile\t\tAdults\tChild\tSeats\tTamt");
+				for(Passenger temp :p)
+					if(temp.Adults>temp.Child)
+						temp.getData();
+				break;
+			case 3:
+				System.out.println("Name\tMobile\t\tAdults\tChild\tSeats\tTamt");
+				for(Passenger temp :p)
+					if(temp.Child==temp.Seats)
+						temp.getData();
+				break;
+			case 4:
+				System.out.println("Enter Lower Range: ");
+				float low = Float.parseFloat(sc.nextLine());
+				System.out.println("Enter Higher Range: ");
+				float High = Float.parseFloat(sc.nextLine());
+				System.out.println("Name\tMobile\t\tAdults\tChild\tSeats\tTamt");
+				for(Passenger temp :p)
+					if(temp.Tamt>=low && temp.Tamt<High)
+						temp.getData();
+				break;
+		}
+			sc.close();
 	}
 }
